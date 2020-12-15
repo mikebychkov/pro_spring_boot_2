@@ -1,12 +1,12 @@
-package pro.sb2.todoapp;
+package pro.sb2.todojdbc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ToDoAppApplication {
+public class TodoJdbcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ToDoAppApplication.class, args);
+        SpringApplication.run(TodoJdbcApplication.class, args);
     }
 }
