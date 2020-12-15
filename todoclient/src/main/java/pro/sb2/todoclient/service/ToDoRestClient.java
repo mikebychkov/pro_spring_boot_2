@@ -1,10 +1,9 @@
 package pro.sb2.todoclient.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pro.sb2.todoclient.ex.ToDoErrorHandler;
@@ -17,6 +16,8 @@ import java.util.Map;
 
 @Service
 public class ToDoRestClient {
+
+    private final Logger log = LogManager.getLogger(ToDoRestClient.class);
 
     private RestTemplate rest;
     private ToDoRestClientProperties properties;
@@ -41,7 +42,7 @@ public class ToDoRestClient {
     public ToDo findById(String id) {
         Map<String, String> params = new HashMap<>();
         params.put("id", id);
-        return rest.getForObject(properties.getUrl() + properties.getBasePath(), ToDo.class, params);
+        return rest.getForObject(properties.getUrl() + properties.getBasePath() + "/{id}", ToDo.class, params);
     }
 
     public ToDo upsert(ToDo toDo) throws URISyntaxException {
@@ -55,10 +56,10 @@ public class ToDoRestClient {
         return null;
     }
 
-    public ToDo setCompleted(String id) {
+    public ToDo setCompleted(String id) throws URISyntaxException {
         Map<String, String> params = new HashMap<>();
         params.put("id", id);
-        rest.postForObject(properties.getUrl() + properties.getBasePath() + "/{id}?_method=patch"
+        rest.exchange(properties.getUrl() + properties.getBasePath() + "/{id}", HttpMethod.PUT
                 , null, ResponseEntity.class, params);
         return findById(id);
     }
