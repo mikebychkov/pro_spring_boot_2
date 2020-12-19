@@ -13,6 +13,15 @@
   <modules>
     <module>todoapp</module>
     <module>todoclient</module>
+    <module>todo-jdbc</module>
+    <module>todo-jpa</module>
+    <module>todo-rest</module>
+    <module>todo-mongo</module>
+    <module>todo-redis</module>
+    <module>todo-reactive</module>
+    <module>todo-webflux</module>
+    <module>todo-reactive-data</module>
+    <module>todo-simple-security</module>
   </modules>
 
   <name>pro_spring_boot_2</name>
