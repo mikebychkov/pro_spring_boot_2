@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ToDo's API</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <a href="#" id="logoutLink">Logout</a>
+            </nav>
+        </div>
+        <div class="jumbotron">
+            <h1>ToDo's REST API</h1>
+            <p class="lead">Welcome to the ToDo App. A Spring Boot application!</p>
+        </div>
+    </div>
+    <form id="logout" action="/logout" method="POST">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+    </form>
+    <script>
+        $(function(){
+            $('#logoutLink').click(function(){
+                $('#logout').submit();
+            })
+        })
+    </script>
+</body>
+
+</html>
