@@ -25,6 +25,7 @@
     <module>todo-directory-security</module>
     <module>todo-oauth2</module>
     <module>todo-jms</module>
+    <module>todo-rabbitmq</module>
   </modules>
 
   <name>pro_spring_boot_2</name>
