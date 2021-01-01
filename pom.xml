@@ -26,6 +26,7 @@
     <module>todo-oauth2</module>
     <module>todo-jms</module>
     <module>todo-rabbitmq</module>
+    <module>todo-redis-messaging</module>
   </modules>
 
   <name>pro_spring_boot_2</name>
