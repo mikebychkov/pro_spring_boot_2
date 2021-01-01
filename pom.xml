@@ -22,6 +22,9 @@
     <module>todo-webflux</module>
     <module>todo-reactive-data</module>
     <module>todo-simple-security</module>
+    <module>todo-directory-security</module>
+    <module>todo-oauth2</module>
+    <module>todo-jms</module>
   </modules>
 
   <name>pro_spring_boot_2</name>
